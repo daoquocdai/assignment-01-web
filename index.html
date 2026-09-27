@@ -3,14 +3,695 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Assignment 01</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Web Learning - HTML5 Semantic</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f7fb;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* ================= HEADER ================= */
+
+        #header {
+            background: linear-gradient(135deg, #1769aa, #42a5f5);
+            color: white;
+            padding: 35px 20px;
+        }
+
+        .header-inner {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        #header h1 {
+            font-size: 34px;
+            margin-bottom: 5px;
+        }
+
+        #header p {
+            opacity: 0.9;
+        }
+
+        /* ================= NAVIGATION ================= */
+
+        #nav {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav-inner {
+            max-width: 1150px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        #nav a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 16px 20px;
+            font-weight: bold;
+            transition: 0.25s;
+        }
+
+        #nav a:hover {
+            background-color: #eaf4ff;
+            color: #1769aa;
+        }
+
+        #nav .active {
+            color: #1769aa;
+            border-bottom: 3px solid #1769aa;
+        }
+
+        /* ================= HERO ================= */
+
+        #hero {
+            max-width: 1150px;
+            margin: 30px auto 20px;
+            background: linear-gradient(135deg, #ffffff, #eaf4ff);
+            border-radius: 14px;
+            padding: 45px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        #hero h2 {
+            color: #1769aa;
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        #hero p {
+            max-width: 750px;
+            color: #555;
+            font-size: 17px;
+            margin-bottom: 22px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            padding: 11px 22px;
+            background-color: #1769aa;
+            color: white;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero-button:hover {
+            background-color: #0d4f87;
+        }
+
+        /* ================= MAIN LAYOUT ================= */
+
+        #container {
+            max-width: 1150px;
+            margin: 25px auto;
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+
+        /* ================= SIDEBAR ================= */
+
+        #sidebar {
+            width: 25%;
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        #sidebar h3 {
+            color: #1769aa;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eaf4ff;
+        }
+
+        #sidebar ul {
+            list-style: none;
+        }
+
+        #sidebar li {
+            margin-bottom: 8px;
+        }
+
+        #sidebar a {
+            display: block;
+            text-decoration: none;
+            color: #444;
+            padding: 9px 12px;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+
+        #sidebar a:hover {
+            background-color: #eaf4ff;
+            color: #1769aa;
+            padding-left: 17px;
+        }
+
+        .info-box {
+            background-color: #f3f8fd;
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #1769aa;
+        }
+
+        .info-box p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* ================= CONTENT ================= */
+
+        #content {
+            width: 75%;
+        }
+
+        .content-title {
+            margin-bottom: 18px;
+        }
+
+        .content-title h2 {
+            color: #1769aa;
+            font-size: 26px;
+        }
+
+        .content-title p {
+            color: #777;
+        }
+
+        /* ================= CARDS ================= */
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            transition: 0.25s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            color: #1769aa;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #1769aa;
+            font-weight: bold;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            background-color: white;
+            margin-top: 25px;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .about h2 {
+            color: #1769aa;
+            margin-bottom: 10px;
+        }
+
+        .about p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        /* ================= STATISTICS ================= */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #1769aa, #42a5f5);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .stat-box strong {
+            display: block;
+            font-size: 25px;
+        }
+
+        .stat-box span {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* ================= FOOTER ================= */
+
+        #footer {
+            margin-top: 40px;
+            background-color: #1d2a38;
+            color: white;
+            padding: 30px 20px;
+        }
+
+        .footer-inner {
+            max-width: 1150px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        #footer h3 {
+            margin-bottom: 8px;
+        }
+
+        #footer p {
+            color: #cbd5df;
+            font-size: 14px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 18px;
+            border-top: 1px solid #435261;
+            color: #aebbc7;
+            font-size: 14px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 800px) {
+
+            #container {
+                flex-direction: column;
+                padding: 0 15px;
+            }
+
+            #sidebar,
+            #content {
+                width: 100%;
+            }
+
+            #hero {
+                margin: 20px 15px;
+                padding: 30px;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-inner {
+                flex-wrap: wrap;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Assignment 01</h1>
-    <p>Họ tên: Đào Quốc Đại</p>
-    <p>MSSV: 20235290</p>
-    <p>Website được triển khai trên free web hosting.</p>
+
+    <!-- HEADER: refactor từ <div id="header"> -->
+    <header id="header">
+
+        <div class="header-inner">
+
+            <h1>Web Learning</h1>
+
+            <p>
+                Website thực hành HTML5 và phát triển Web cơ bản
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- NAVIGATION: refactor từ <div id="nav"> -->
+    <nav id="nav" aria-label="Điều hướng chính">
+
+        <div class="nav-inner">
+
+            <a href="index.html">
+                Trang chủ
+            </a>
+
+            <a href="register.html">
+                Đăng ký
+            </a>
+
+            <a href="media.html">
+                Đa phương tiện
+            </a>
+
+            <a class="active" href="index_new.html">
+                HTML5 Semantic
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- HERO: dùng section vì đây là một khu vực nội dung có chủ đề riêng -->
+    <section id="hero">
+
+        <h2>
+            Chào mừng đến với Web Learning 👋
+        </h2>
+
+        <p>
+            Đây là website thực hành xây dựng bằng HTML và CSS.
+            Website minh họa các kiến thức về biểu mẫu, nội dung
+            đa phương tiện và HTML5 Semantic.
+        </p>
+
+        <a class="hero-button" href="register.html">
+            Đăng ký nhận thông tin
+        </a>
+
+    </section>
+
+
+    <!-- MAIN LAYOUT -->
+    <div id="container">
+
+
+        <!-- SIDEBAR: refactor từ <div id="sidebar"> -->
+        <aside id="sidebar">
+
+            <h3>📚 Nội dung</h3>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        🏠 Trang chủ
+                    </a>
+                </li>
+
+                <li>
+                    <a href="register.html">
+                        📝 Form đăng ký
+                    </a>
+                </li>
+
+                <li>
+                    <a href="media.html">
+                        🎬 Multimedia
+                    </a>
+                </li>
+
+                <li>
+                    <a href="index_new.html">
+                        🧩 Semantic HTML5
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <section class="info-box">
+
+                <strong>Thông tin bài thực hành</strong>
+
+                <p>
+                    Website được xây dựng nhằm luyện tập
+                    HTML, CSS, Form, Media và Semantic HTML5.
+                </p>
+
+            </section>
+
+        </aside>
+
+
+        <!-- CONTENT: refactor từ <div id="content"> -->
+        <main id="content">
+
+            <section class="content-title">
+
+                <h2>Nội dung website</h2>
+
+                <p>
+                    Khám phá các thành phần chính trong bài thực hành.
+                </p>
+
+            </section>
+
+
+            <section class="card-grid" aria-label="Các nội dung thực hành">
+
+
+                <article class="card">
+
+                    <div class="card-icon">
+                        📝
+                    </div>
+
+                    <h3>Form đăng ký</h3>
+
+                    <p>
+                        Thực hành các thành phần của HTML Form
+                        như input, radio, checkbox, select,
+                        textarea và button.
+                    </p>
+
+                    <a href="register.html">
+                        Xem trang đăng ký →
+                    </a>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-icon">
+                        🎬
+                    </div>
+
+                    <h3>HTML Multimedia</h3>
+
+                    <p>
+                        Thực hành hiển thị hình ảnh, âm thanh
+                        và video bằng các thẻ multimedia
+                        của HTML5.
+                    </p>
+
+                    <a href="media.html">
+                        Xem trang multimedia →
+                    </a>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-icon">
+                        🧩
+                    </div>
+
+                    <h3>Semantic HTML5</h3>
+
+                    <p>
+                        Tìm hiểu các thẻ header, nav, main,
+                        article, aside và footer để mô tả
+                        cấu trúc trang rõ ràng hơn.
+                    </p>
+
+                    <a href="index_new.html">
+                        Xem phiên bản Semantic →
+                    </a>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-icon">
+                        🌐
+                    </div>
+
+                    <h3>Web Hosting</h3>
+
+                    <p>
+                        Website có thể được triển khai lên
+                        hosting và truy cập thông qua một
+                        tên miền trên Internet.
+                    </p>
+
+                    <a href="#">
+                        Tìm hiểu thêm →
+                    </a>
+
+                </article>
+
+            </section>
+
+
+            <!-- ABOUT -->
+            <section class="about">
+
+                <h2>Giới thiệu</h2>
+
+                <p>
+                    HTML (HyperText Markup Language) là ngôn ngữ
+                    đánh dấu được sử dụng để xây dựng cấu trúc
+                    của một trang web.
+                </p>
+
+                <p>
+                    CSS (Cascading Style Sheets) được sử dụng
+                    để định dạng màu sắc, kích thước, bố cục
+                    và giao diện của trang web.
+                </p>
+
+                <p>
+                    Qua bài thực hành này, người học có thể
+                    làm quen với quá trình tạo một website
+                    đơn giản từ cấu trúc HTML đến triển khai
+                    website lên Internet.
+                </p>
+
+            </section>
+
+
+            <!-- STATISTICS -->
+            <section class="stats" aria-label="Thống kê website">
+
+                <div class="stat-box">
+
+                    <strong>4</strong>
+
+                    <span>Trang HTML</span>
+
+                </div>
+
+
+                <div class="stat-box">
+
+                    <strong>HTML5</strong>
+
+                    <span>Công nghệ chính</span>
+
+                </div>
+
+
+                <div class="stat-box">
+
+                    <strong>100%</strong>
+
+                    <span>Responsive cơ bản</span>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- FOOTER: refactor từ <div id="footer"> -->
+    <footer id="footer">
+
+        <div class="footer-inner">
+
+            <section>
+
+                <h3>Web Learning</h3>
+
+                <p>
+                    Website thực hành lập trình Web cơ bản.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h3>Thông tin sinh viên</h3>
+
+                <p>Họ tên: Đào Quốc Đại</p>
+                <p>MSSV: 20235290</p>
+
+            </section>
+
+
+            <section>
+
+                <h3>Liên kết</h3>
+
+                <p>Trang chủ</p>
+                <p>Đăng ký</p>
+                <p>Multimedia</p>
+
+            </section>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Web Learning - HTML Practice Website
+
+        </div>
+
+    </footer>
+
 </body>
 
 </html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Web Learning - Đa phương tiện</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f7fb;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* ================= HEADER ================= */
+
+        #header {
+            background: linear-gradient(135deg, #1769aa, #42a5f5);
+            color: white;
+            padding: 35px 20px;
+        }
+
+        .header-inner {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        #header h1 {
+            font-size: 34px;
+            margin-bottom: 5px;
+        }
+
+        #header p {
+            opacity: 0.9;
+        }
+
+        /* ================= NAVIGATION ================= */
+
+        #nav {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav-inner {
+            max-width: 1150px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        #nav a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 16px 20px;
+            font-weight: bold;
+            transition: 0.25s;
+        }
+
+        #nav a:hover {
+            background-color: #eaf4ff;
+            color: #1769aa;
+        }
+
+        #nav .active {
+            color: #1769aa;
+            border-bottom: 3px solid #1769aa;
+        }
+
+        /* ================= PAGE TITLE ================= */
+
+        #page-title {
+            max-width: 1150px;
+            margin: 30px auto 20px;
+            background: linear-gradient(135deg, #ffffff, #eaf4ff);
+            border-radius: 14px;
+            padding: 35px 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        #page-title h2 {
+            color: #1769aa;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        #page-title p {
+            color: #666;
+        }
+
+        /* ================= MAIN LAYOUT ================= */
+
+        #container {
+            max-width: 1150px;
+            margin: 25px auto;
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+
+        /* ================= SIDEBAR ================= */
+
+        #sidebar {
+            width: 25%;
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        #sidebar h3 {
+            color: #1769aa;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eaf4ff;
+        }
+
+        #sidebar ul {
+            list-style: none;
+        }
+
+        #sidebar li {
+            margin-bottom: 8px;
+        }
+
+        #sidebar a {
+            display: block;
+            text-decoration: none;
+            color: #444;
+            padding: 9px 12px;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+
+        #sidebar a:hover {
+            background-color: #eaf4ff;
+            color: #1769aa;
+            padding-left: 17px;
+        }
+
+        .info-box {
+            background-color: #f3f8fd;
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #1769aa;
+        }
+
+        .info-box p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* ================= CONTENT ================= */
+
+        #content {
+            width: 75%;
+        }
+
+        .media-section {
+            background-color: white;
+            padding: 28px;
+            margin-bottom: 22px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .media-section h2 {
+            color: #1769aa;
+            margin-bottom: 8px;
+        }
+
+        .media-section > p {
+            color: #666;
+            margin-bottom: 18px;
+        }
+
+        figure {
+            margin: 0;
+        }
+
+        figure img {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            display: block;
+            border-radius: 10px;
+        }
+
+        figcaption {
+            margin-top: 10px;
+            color: #666;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        audio,
+        video {
+            width: 100%;
+            display: block;
+            margin-top: 12px;
+        }
+
+        video {
+            border-radius: 10px;
+            background-color: #111;
+        }
+
+        .semantic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .semantic-card {
+            border: 1px solid #e1e7ee;
+            border-radius: 10px;
+            padding: 18px;
+            background-color: #fafcff;
+        }
+
+        .semantic-card h3 {
+            color: #1769aa;
+            margin-bottom: 6px;
+        }
+
+        .semantic-card code {
+            background-color: #eaf4ff;
+            color: #0d4f87;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .note {
+            background-color: #f8fbff;
+            border-left: 4px solid #1769aa;
+            padding: 15px;
+            border-radius: 8px;
+            color: #555;
+        }
+
+        /* ================= FOOTER ================= */
+
+        #footer {
+            margin-top: 40px;
+            background-color: #1d2a38;
+            color: white;
+            padding: 30px 20px;
+        }
+
+        .footer-inner {
+            max-width: 1150px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        #footer h3 {
+            margin-bottom: 8px;
+        }
+
+        #footer p {
+            color: #cbd5df;
+            font-size: 14px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 18px;
+            border-top: 1px solid #435261;
+            color: #aebbc7;
+            font-size: 14px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 800px) {
+            #container {
+                flex-direction: column;
+                padding: 0 15px;
+            }
+
+            #sidebar,
+            #content {
+                width: 100%;
+            }
+
+            #page-title {
+                margin: 20px 15px;
+                padding: 28px;
+            }
+
+            .semantic-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-inner {
+                flex-wrap: wrap;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div id="header">
+        <div class="header-inner">
+            <h1>Web Learning</h1>
+            <p>Website thực hành HTML5 và phát triển Web cơ bản</p>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div id="nav">
+        <div class="nav-inner">
+            <a href="index.html">Trang chủ</a>
+            <a href="register.html">Đăng ký</a>
+            <a class="active" href="media.html">Đa phương tiện</a>
+            <a href="index_new.html">HTML5 Semantic</a>
+        </div>
+    </div>
+
+    <!-- PAGE TITLE -->
+    <div id="page-title">
+        <h2>Trang đa phương tiện</h2>
+        <p>
+            Minh họa hình ảnh, âm thanh, video và một số thẻ semantic HTML5 cơ bản
+            trong cùng bố cục với các trang còn lại.
+        </p>
+    </div>
+
+    <!-- MAIN AREA -->
+    <div id="container">
+
+        <!-- SIDEBAR -->
+        <div id="sidebar">
+
+            <h3>📚 Nội dung</h3>
+
+            <ul>
+                <li><a href="index.html">🏠 Trang chủ</a></li>
+                <li><a href="register.html">📝 Form đăng ký</a></li>
+                <li><a href="media.html">🎬 Multimedia</a></li>
+                <li><a href="index_new.html">🧩 Semantic HTML5</a></li>
+            </ul>
+
+            <div class="info-box">
+                <strong>HTML5 Media</strong>
+                <p>
+                    HTML5 hỗ trợ phát ảnh, âm thanh và video trực tiếp
+                    trên trình duyệt mà không cần plugin bên ngoài.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- CONTENT -->
+        <div id="content">
+
+            <!-- IMAGE -->
+            <section class="media-section">
+
+                <h2>🖼️ Hình ảnh và Figure</h2>
+
+                <p>
+                    Thẻ <code>&lt;figure&gt;</code> dùng để nhóm một nội dung minh họa
+                    với phần chú thích <code>&lt;figcaption&gt;</code>.
+                </p>
+
+                <figure>
+
+                    <img
+                        src="https://www.w3schools.com/html/pic_trulli.jpg"
+                        alt="Ngôi nhà Trulli tại Alberobello, Ý">
+
+                    <figcaption>
+                        Ví dụ hình ảnh được đặt trong thẻ figure và có figcaption.
+                    </figcaption>
+
+                </figure>
+
+            </section>
+
+
+            <!-- AUDIO -->
+            <section class="media-section">
+
+                <h2>🎵 Âm thanh</h2>
+
+                <p>
+                    Thẻ <code>&lt;audio&gt;</code> cho phép trình duyệt phát
+                    tệp âm thanh trực tiếp.
+                </p>
+
+                <audio controls>
+                    <source
+                        src="https://www.w3schools.com/html/horse.mp3"
+                        type="audio/mpeg">
+
+                    Trình duyệt của bạn không hỗ trợ thẻ audio.
+                </audio>
+
+            </section>
+
+
+            <!-- VIDEO -->
+            <section class="media-section">
+
+                <h2>🎬 Video</h2>
+
+                <p>
+                    Thẻ <code>&lt;video&gt;</code> hỗ trợ các điều khiển như
+                    phát, tạm dừng, tua và điều chỉnh âm lượng.
+                </p>
+
+                <video controls preload="metadata">
+                    <source
+                        src="https://www.w3schools.com/html/mov_bbb.mp4"
+                        type="video/mp4">
+
+                    Trình duyệt của bạn không hỗ trợ thẻ video.
+                </video>
+
+            </section>
+
+
+            <!-- SEMANTIC -->
+            <section class="media-section">
+
+                <h2>🧩 Một số thẻ Semantic HTML5</h2>
+
+                <p>
+                    Các thẻ semantic giúp mô tả rõ ý nghĩa của từng khu vực
+                    trong tài liệu HTML.
+                </p>
+
+                <div class="semantic-grid">
+
+                    <article class="semantic-card">
+                        <h3>&lt;section&gt;</h3>
+                        <p>
+                            Nhóm một phần nội dung có cùng chủ đề trên trang.
+                        </p>
+                    </article>
+
+                    <article class="semantic-card">
+                        <h3>&lt;article&gt;</h3>
+                        <p>
+                            Đại diện cho một nội dung tương đối độc lập,
+                            chẳng hạn bài viết hoặc bản tin.
+                        </p>
+                    </article>
+
+                    <article class="semantic-card">
+                        <h3>&lt;figure&gt;</h3>
+                        <p>
+                            Chứa hình ảnh, sơ đồ hoặc nội dung minh họa
+                            có thể đi kèm chú thích.
+                        </p>
+                    </article>
+
+                    <article class="semantic-card">
+                        <h3>&lt;figcaption&gt;</h3>
+                        <p>
+                            Cung cấp chú thích cho nội dung bên trong figure.
+                        </p>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <section class="media-section">
+
+                <h2>💡 Ghi chú</h2>
+
+                <div class="note">
+                    File media này đang dùng các tệp mẫu trực tuyến để có thể chạy ngay.
+                    Khi cần, có thể thay URL trong thuộc tính <strong>src</strong>
+                    bằng tệp ảnh, audio và video nằm trong thư mục của project.
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer">
+
+        <div class="footer-inner">
+
+            <div>
+                <h3>Web Learning</h3>
+                <p>Website thực hành lập trình Web cơ bản.</p>
+            </div>
+
+            <div>
+                <h3>Thông tin sinh viên</h3>
+                <p>Họ tên: Đào Quốc Đại</p>
+                <p>MSSV: 20235290</p>
+            </div>
+
+            <div>
+                <h3>Liên kết</h3>
+                <p>Trang chủ</p>
+                <p>Đăng ký</p>
+                <p>Multimedia</p>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Web Learning - HTML Practice Website
+        </div>
+
+    </div>
+
+</body>
+
+</html>
