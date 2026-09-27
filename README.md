@@ -12,14 +12,13 @@ Website thực hành HTML/CSS cơ bản, gồm các trang minh họa form, multi
 ## Cấu trúc project
 
 ```text
-website/
+assignment-01-web/
 ├── index.html
 ├── register.html
 ├── media.html
 ├── index_new.html
 ├── prompt_CRAFT_semantic_html5.md
-├── images/
-└── media/
+└── README.md
 ```
 
 ## Các trang chính
@@ -129,4 +128,4 @@ File `index.html` cần nằm trực tiếp trong `htdocs` để website có th�
 
 ## Ghi chú
 
-Các file `media.html` hiện có thể sử dụng media mẫu trực tuyến. Nếu muốn chạy hoàn toàn offline, tải ảnh/audio/video về các thư mục `images/` và `media/`, sau đó sửa lại đường dẫn `src`.
+File `media.html` hiện sử dụng ảnh, audio và video mẫu trực tuyến nên không cần thư mục media cục bộ để chạy bài.
